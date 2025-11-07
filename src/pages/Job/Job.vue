@@ -14,14 +14,22 @@
             return{
                 // This is Array of Object
 
-                job:[
-                    {id:1, title:"Frontend Developer", content:"Responsible for implementing visual elements that users see and interact with in a web application."},
-                    {id:2, title:"Backend Developer", content:"Focuses on server-side development, databases, and application logic."},
-                    {id:3, title:"Full Stack Developer", content:"Proficient in both frontend and backend development."},
-                    {id:4, title:"DevOps Engineer", content:"Bridges the gap between development and operations teams to streamline software delivery."},
-                    {id:5, title:"Data Scientist", content:"Analyzes and interprets complex data to help organizations make informed decisions."}
-                ]
+                // job:[
+                //     {id:1, title:"Frontend Developer", content:"Responsible for implementing visual elements that users see and interact with in a web application."},
+                //     {id:2, title:"Backend Developer", content:"Focuses on server-side development, databases, and application logic."},
+                //     {id:3, title:"Full Stack Developer", content:"Proficient in both frontend and backend development."},
+                //     {id:4, title:"DevOps Engineer", content:"Bridges the gap between development and operations teams to streamline software delivery."},
+                //     {id:5, title:"Data Scientist", content:"Analyzes and interprets complex data to help organizations make informed decisions."}
+                // ]
+
+                job:[]
             }
+        },
+        mounted(){
+            fetch('http://localhost:3000/jobs')
+            .then(res=> res.json())
+            .then(data => this.job = data)
+            .catch(err => console.log(err.message));
         }
     }
 </script>
